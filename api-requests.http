@@ -1,0 +1,126 @@
+### Variables
+@baseUrl = http://localhost:3333/api
+@token = tu_token_aqui
+
+### ============================================
+### HEALTH CHECK
+### ============================================
+
+### Health Check
+GET http://localhost:3333/
+
+### ============================================
+### AUTENTICACIÓN
+### ============================================
+
+### Registrar Usuario
+POST {{baseUrl}}/auth/register
+Content-Type: application/json
+
+{
+  "email": "usuario@test.com",
+  "contrasena": "12345678",
+  "rol": "admin"
+}
+
+### Iniciar Sesión
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@ruprecht.com",
+  "contrasena": "12345678"
+}
+
+### Obtener Usuario Actual
+GET {{baseUrl}}/auth/me
+Authorization: Bearer {{token}}
+
+### Cerrar Sesión
+POST {{baseUrl}}/auth/logout
+Authorization: Bearer {{token}}
+
+### ============================================
+### PRODUCTOS
+### ============================================
+
+### Listar Todos los Productos
+GET {{baseUrl}}/products
+
+### Listar Productos con Paginación y Filtros
+GET {{baseUrl}}/products?page=1&limit=5&category=Electrónica
+
+### Obtener Producto por ID
+GET {{baseUrl}}/products/1
+
+### Productos por Categoría
+GET {{baseUrl}}/products/category/Electrónica
+
+### Crear Producto (Requiere Auth)
+POST {{baseUrl}}/products
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "Producto Nuevo",
+  "description": "Descripción detallada del producto nuevo que estamos creando",
+  "price": 199.99,
+  "stock": 25,
+  "imageUrl": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e",
+  "category": "Electrónica",
+  "isActive": true
+}
+
+### Actualizar Producto (Requiere Auth)
+PUT {{baseUrl}}/products/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "Producto Actualizado",
+  "price": 179.99,
+  "stock": 30
+}
+
+### Activar/Desactivar Producto (Requiere Auth)
+PATCH {{baseUrl}}/products/1/toggle
+Authorization: Bearer {{token}}
+
+### Eliminar Producto (Requiere Auth)
+DELETE {{baseUrl}}/products/11
+Authorization: Bearer {{token}}
+
+### ============================================
+### CONTACTO
+### ============================================
+
+### Enviar Mensaje de Contacto (Público)
+POST {{baseUrl}}/contact
+Content-Type: application/json
+
+{
+  "name": "Juan Pérez",
+  "email": "juan@example.com",
+  "subject": "Consulta sobre productos",
+  "message": "Hola, me gustaría obtener más información sobre los productos disponibles. ¿Tienen envíos internacionales?"
+}
+
+### Listar Mensajes de Contacto (Requiere Auth)
+GET {{baseUrl}}/contact
+Authorization: Bearer {{token}}
+
+### Listar Mensajes No Leídos (Requiere Auth)
+GET {{baseUrl}}/contact?is_read=false
+Authorization: Bearer {{token}}
+
+### Obtener Mensaje por ID (Requiere Auth)
+GET {{baseUrl}}/contact/1
+Authorization: Bearer {{token}}
+
+### Marcar Mensaje como Leído (Requiere Auth)
+PATCH {{baseUrl}}/contact/1/read
+Authorization: Bearer {{token}}
+
+### Eliminar Mensaje (Requiere Auth)
+DELETE {{baseUrl}}/contact/1
+Authorization: Bearer {{token}}
