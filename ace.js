@@ -25,4 +25,20 @@
  * Import ace console entrypoint
  */
 import 'ts-node/register'
-await import('./bin/console.js')
+
+// Detecta si estamos en producción (build) o desarrollo
+import { existsSync } from 'node:fs'
+import { join, dirname } from 'node:path'
+import { fileURLToPath } from 'node:url'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
+
+const buildConsole = join(__dirname, 'build', 'bin', 'console.js')
+const srcConsole = join(__dirname, 'bin', 'console.js')
+
+if (existsSync(buildConsole)) {
+	await import(buildConsole)
+} else {
+	await import(srcConsole)
+}
