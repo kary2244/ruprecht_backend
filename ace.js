@@ -24,4 +24,5 @@
 /**
  * Import ace console entrypoint
  */
+import 'ts-node/register'
 await import('./bin/console.js')
