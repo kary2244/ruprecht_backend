@@ -4,15 +4,15 @@
   "private": true,
   "type": "module",
   "license": "UNLICENSED",
- "scripts": {
-  "start": "node build/bin/server.js",
-  "build": "node ace build",
-  "dev": "node ace serve --hmr",
-  "test": "node ace test",
-  "lint": "eslint .",
-  "format": "prettier --write .",
-  "typecheck": "tsc --noEmit"
-},
+  "scripts": {
+    "start": "node build/bin/server.js",
+    "build": "node ace build",
+    "dev": "node ace serve --hmr",
+    "test": "node ace test",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "typecheck": "tsc --noEmit"
+  },
   "imports": {
     "#controllers/*": "./app/controllers/*.js",
     "#exceptions/*": "./app/exceptions/*.js",
@@ -48,7 +48,7 @@
     "hot-hook": "^0.4.0",
     "pino-pretty": "^13.0.0",
     "prettier": "^3.5.3",
-    "ts-node-maintained": "^10.9.5",
+    "ts-node": "^10.9.2",
     "typescript": "~5.8"
   },
   "dependencies": {
