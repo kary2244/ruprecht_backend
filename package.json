@@ -35,7 +35,6 @@
     "@adonisjs/assembler": "^7.8.2",
     "@adonisjs/eslint-config": "^2.0.0",
     "@adonisjs/prettier-config": "^1.4.4",
-    "@adonisjs/tsconfig": "^1.4.0",
     "@japa/api-client": "^3.1.0",
     "@japa/assert": "^4.0.1",
     "@japa/plugin-adonisjs": "^4.0.0",
@@ -51,21 +50,22 @@
   },
   "dependencies": {
     "@adonisjs/auth": "^9.6.0",
+    "@adonisjs/tsconfig": "^1.4.0",
     "@adonisjs/core": "^6.18.0",
     "@adonisjs/cors": "^2.2.1",
     "@adonisjs/limiter": "^2.4.0",
     "@adonisjs/lucid": "^21.6.1",
     "@adonisjs/shield": "^8.2.0",
+    "@swc/core": "^1.15.18",
     "@vinejs/vine": "^3.0.1",
-    "@swc/core": "1.11.24",
     "axios": "^1.13.3",
     "bcryptjs": "^3.0.3",
     "jsonwebtoken": "^9.0.3",
-    "ts-node": "^10.9.2",
     "luxon": "^3.7.2",
     "mysql2": "^3.16.1",
     "nodemailer": "^8.0.1",
-    "reflect-metadata": "^0.2.2"
+    "reflect-metadata": "^0.2.2",
+    "ts-node": "^10.9.2"
   },
   "hotHook": {
     "boundaries": [
