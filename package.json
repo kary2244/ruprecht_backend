@@ -46,7 +46,6 @@
     "hot-hook": "^0.4.0",
     "pino-pretty": "^13.0.0",
     "prettier": "^3.5.3",
-    "ts-node": "^10.9.2",
     "typescript": "~5.8"
   },
   "dependencies": {
@@ -60,6 +59,7 @@
     "@swc/core": "^1.15.18",
     "@vinejs/vine": "^3.0.1",
     "axios": "^1.13.3",
+    "ts-node": "^10.9.2",
     "bcryptjs": "^3.0.3",
     "jsonwebtoken": "^9.0.3",
     "luxon": "^3.7.2",
