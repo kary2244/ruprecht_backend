@@ -5,14 +5,14 @@
   "type": "module",
   "license": "UNLICENSED",
   "scripts": {
-  "start": "node ace.mjs serve --production",
-  "dev": "node ace.mjs serve --watch",
-  "test": "node ace.mjs test",
-  "lint": "eslint .",
-  "format": "prettier --write .",
-  "typecheck": "tsc --noEmit",
-  "migrate": "node ace.mjs migration:run"
-},
+    "start": "node ace.mjs serve --production",
+    "dev": "node ace.mjs serve --watch",
+    "test": "node ace.mjs test",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "typecheck": "tsc --noEmit",
+    "migrate": "node ace.mjs migration:run"
+  },
   "imports": {
     "#controllers/*": "./app/controllers/*.js",
     "#exceptions/*": "./app/exceptions/*.js",
