@@ -117,9 +117,11 @@ router
   .group(() => {
     // Public routes
     router.get('/', [WaxCreamController, 'index'])
+    router.get('/image/:fileName', [WaxCreamController, 'showUploadedImage'])
     router.get('/:id', [WaxCreamController, 'show'])
 
     // Admin routes
+    router.post('/upload-image', [WaxCreamController, 'uploadImage']).use(middleware.editor())
     router.post('/', [WaxCreamController, 'store']).use(middleware.editor())
     router.put('/:id', [WaxCreamController, 'update']).use(middleware.editor())
     router.delete('/:id', [WaxCreamController, 'destroy']).use(middleware.admin())

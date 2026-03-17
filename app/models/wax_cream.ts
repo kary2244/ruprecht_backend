@@ -9,17 +9,20 @@ export default class WaxCream extends BaseModel {
   declare id: number
 
   @column()
-  declare nombre: string
+  declare nombre: string;
 
   @column()
-  declare medidas: string | null
+  declare medidas: string | null;
 
   @column()
-  declare peso: string | null
+  declare peso: string | null;
 
   @column()
-  declare costo: string
+  declare costo: string;
 
   @column({ columnName: 'type_candle' })
-  declare typeCandle: number | null
+  declare typeCandle: number | null;
+
+  @column()
+  declare image_url: string | null;
 }

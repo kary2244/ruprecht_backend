@@ -6,6 +6,7 @@ export const createWaxCreamValidator = vine.compile(
     medidas: vine.string().trim().maxLength(255).optional(),
     peso: vine.string().trim().maxLength(255).optional(),
     costo: vine.string().trim().maxLength(255),
+    image_url: vine.string().trim().maxLength(1000).optional(),
   })
 )
 
@@ -15,5 +16,6 @@ export const updateWaxCreamValidator = vine.compile(
     medidas: vine.string().trim().maxLength(255).optional().nullable(),
     peso: vine.string().trim().maxLength(255).optional().nullable(),
     costo: vine.string().trim().maxLength(255).optional(),
+    image_url: vine.string().trim().maxLength(1000).optional(),
   })
 )
