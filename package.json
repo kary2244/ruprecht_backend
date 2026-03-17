@@ -5,7 +5,7 @@
   "type": "module",
   "license": "UNLICENSED",
   "scripts": {
-    "start": "node ace.mjs serve --production",
+    "start": "node --loader ts-node/esm bin/server.ts",
     "dev": "node ace.mjs serve --watch",
     "test": "node ace.mjs test",
     "lint": "eslint .",
