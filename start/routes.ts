@@ -57,6 +57,8 @@ router
 // Products routes
 router
   .group(() => {
+    // Eliminar solo la imagen de wax cream
+    router.delete('/wax-cream/:id/image', [WaxCreamController, 'deleteImage']).use(middleware.admin())
     // Public routes
     router.get('/', [ProductsController, 'index'])
     router.get('/category/:category', [ProductsController, 'byCategory'])

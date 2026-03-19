@@ -1,3 +1,5 @@
+import fs from 'node:fs'
+import path from 'node:path'
 
 import type { HttpContext } from '@adonisjs/core/http'
 import WaxCream from '#models/wax_cream'
@@ -19,6 +21,27 @@ const IMAGE_MIME_TYPES: Record<string, string> = {
 const WAX_TYPE_CANDLE = 4
 
 export default class WaxCreamController {
+  /**
+   * Eliminar solo la imagen de wax cream
+   */
+  async deleteImage({ params, response }: HttpContext) {
+    const waxCreamId = params.id
+    const waxCream = await WaxCream.find(waxCreamId)
+    if (!waxCream) {
+      return response.notFound({ message: 'Wax cream no encontrado' })
+    }
+    if (waxCream.image_url) {
+      // Elimina el archivo físico si existe
+      const fileName = path.basename(waxCream.image_url)
+      const filePath = app.makePath('public', 'uploads', 'wax_cream', fileName)
+      if (fs.existsSync(filePath)) {
+        fs.unlinkSync(filePath)
+      }
+      waxCream.image_url = null
+      await waxCream.save()
+    }
+    return response.ok({ message: 'Imagen eliminada' })
+  }
   /**
    * Servir imagen subida de wax
    */
